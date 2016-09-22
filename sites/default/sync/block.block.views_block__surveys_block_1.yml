@@ -1,0 +1,32 @@
+uuid: 18f5cfac-6e37-4f89-a26e-8cf88d49be32
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.surveys
+  module:
+    - user
+    - views
+  theme:
+    - bartik
+id: views_block__surveys_block_1
+theme: bartik
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:surveys-block_1'
+settings:
+  id: 'views_block:surveys-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,9 @@
+uuid: 8a745107-2bae-4364-b179-e274862173e7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bNowU_WqEthgHQ8zjvWpDNHLklibv0lvmPCCu4plVDo
+id: relationship
+label: Relationship
+options: "Parent: Parent\n'Significant Other': 'Significant Other'\nSibling: Sibling\nChild: Child\nFriend: Friend\n"

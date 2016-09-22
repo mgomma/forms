@@ -1,0 +1,9 @@
+uuid: 774220f4-7c3c-42a7-b4e2-d7c02dabace6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: A2xarMuZW6OPxFRChF1JP7wjE3EXbZhozmTjnlwUDpQ
+id: likert_importance
+label: 'Likert: Importance'
+options: "1: Not at all Important\n2: Somewhat Important\n3: Neutral\n4: Important\n5: Very Important\n"

@@ -1,0 +1,32 @@
+uuid: 7e5cee8f-7610-4a15-ab21-b04ce02b80dd
+langcode: en
+status: true
+dependencies: {  }
+id: admin
+label: admin
+weight: 3
+is_admin: null
+permissions:
+  - 'administer comment types'
+  - 'administer comments'
+  - 'edit own comments'
+  - 'administer contact forms'
+  - 'administer user display'
+  - 'administer user fields'
+  - 'administer user form display'
+  - 'administer filters'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'administer image styles'
+  - 'administer nodes'
+  - 'administer url aliases'
+  - 'create url aliases'
+  - 'administer search'
+  - 'use advanced search'
+  - 'search content'
+  - 'administer shortcuts'
+  - 'administer menu'
+  - 'administer account settings'
+  - 'administer users'
+  - 'administer yamlform submission'
+  - 'administer yamlform'

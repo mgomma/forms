@@ -1,0 +1,32 @@
+uuid: eabce3a3-5e4a-4ea6-856f-a54754af16f1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  0: 'access content'
+  1: 'use text format basic_html'
+  2: 'access comments'
+  3: 'post comments'
+  4: 'skip comment approval'
+  5: 'access site-wide contact form'
+  6: 'access shortcuts'
+  8: 'create yamlform'
+  9: 'delete own yamlform'
+  10: 'edit own yamlform'
+  11: 'edit yamlform source'
+  12: 'delete yamlform submissions own node'
+  13: 'edit yamlform submissions own node'
+  14: 'view yamlform submissions own node'
+  15: 'access in-place editing'
+  16: 'access administration pages'
+  17: 'access contextual links'
+  18: 'create yamlform content'
+  19: 'delete own yamlform content'
+  20: 'edit own yamlform content'
+  23: 'access tour'

@@ -1,0 +1,23 @@
+uuid: 88d577d1-f731-4b52-a094-fe1011ed0ba6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - yamlform
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: ZF1H81jYaWlZ7jpqb13NniNvxLrglMeuPledkb_Tml0
+name: Form
+type: yamlform
+description: 'A basic page with a YAML form attached.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
