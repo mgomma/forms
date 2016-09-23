@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.yamlform.body
-    - field.field.node.yamlform.yamlform
+    - field.field.node.yamlform.field_form
+    - field.field.node.yamlform.field_image
     - node.type.yamlform
   module:
+    - image
     - text
     - user
     - yamlform
@@ -20,18 +22,26 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 100
+  field_form:
+    weight: 3
+    label: above
     settings: {  }
     third_party_settings: {  }
-  yamlform:
-    weight: 102
-    label: hidden
+    type: yamlform_entity_reference_entity_view
+  field_image:
+    weight: 2
+    label: above
     settings:
-      label: 'Go to [yamlform:title] form'
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: yamlform_entity_reference_link
-hidden: {  }
+    type: image
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

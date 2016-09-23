@@ -5,7 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.yamlform.body
-    - field.field.node.yamlform.yamlform
+    - field.field.node.yamlform.field_form
+    - field.field.node.yamlform.field_image
     - node.type.yamlform
   module:
     - text
@@ -29,4 +30,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  yamlform: true
+  field_form: true
+  field_image: true
+  langcode: true

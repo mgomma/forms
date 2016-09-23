@@ -1,21 +1,19 @@
-uuid: ba8a2341-4fe7-41e6-8eb1-d7f291e22090
+uuid: 5e5223bb-d344-44ea-9e4d-8c60ec676e37
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.yamlform
+    - field.storage.node.field_form
     - node.type.yamlform
   module:
     - yamlform
-_core:
-  default_config_hash: x5qqxmyunVyGvl4xiAXqI_cIUdM1OWKXxTrKbIvKN5U
-id: node.yamlform.yamlform
-field_name: yamlform
+id: node.yamlform.field_form
+field_name: field_form
 entity_type: node
 bundle: yamlform
-label: 'YAML form'
+label: form
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

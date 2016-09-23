@@ -1,0 +1,5 @@
+settings:
+  default_form_submit_label: إضافة
+  default_preview_next_button_label: معاينة
+  default_wizard_start_label: البداية
+  default_wizard_complete_label: تام

@@ -1,14 +1,12 @@
-uuid: d7ce8ba7-e67d-4d3a-9808-fbbff78f8bb3
+uuid: 895efc6a-53eb-4132-ab37-da637e6d5b7e
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - yamlform
-_core:
-  default_config_hash: mhZqeDVdGuBZJHONz_HCbNKJvRkpaLhYMrLYmnZoWks
-id: node.yamlform
-field_name: yamlform
+id: node.field_form
+field_name: field_form
 entity_type: node
 type: yamlform
 settings:
