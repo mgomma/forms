@@ -403,6 +403,13 @@ class YamlFormSubmission extends ContentEntityBase implements YamlFormSubmission
   /**
    * {@inheritdoc}
    */
+  public function getTokenUrl() {
+    return $this->getSourceUrl()->setOption('query', ['token' => $this->token->value]);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function invokeYamlFormHandlers($method, &$context1 = NULL, &$context2 = NULL) {
     if ($yamlform = $this->getYamlForm()) {
       $yamlform->invokeHandlers($method, $this, $context1, $context2);

@@ -444,6 +444,7 @@ class YamlForm extends ConfigEntityBundleBase implements YamlFormInterface {
       'form_prepopulate_source_entity' => FALSE,
       'form_novalidate' => FALSE,
       'form_autofocus' => FALSE,
+      'form_details_toggle' => FALSE,
       'wizard_progress_bar' => TRUE,
       'wizard_progress_pages' => FALSE,
       'wizard_progress_percentage' => FALSE,
@@ -471,6 +472,7 @@ class YamlForm extends ConfigEntityBundleBase implements YamlFormInterface {
       'entity_limit_total' => NULL,
       'entity_limit_user' => NULL,
       'results_disabled' => '',
+      'token_update' => FALSE,
     ];
   }
 

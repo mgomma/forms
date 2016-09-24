@@ -678,11 +678,17 @@ class YamlFormSubmissionExporter implements YamlFormSubmissionExporterInterface 
 
     // Filter by latest.
     if ($export_options['range_type'] == 'latest' && $export_options['range_latest']) {
-      $query->range(0, (int) $export_options['range_latest']);
+      // Clone the query and use it to get latest sid starting sid.
+      $latest_query = clone $query;
+      $latest_query->sort('sid', 'DESC');
+      $latest_query->range(0, (int) $export_options['range_latest']);
+      if ($latest_query_entity_ids = $latest_query->execute()) {
+        $query->condition('sid', end($latest_query_entity_ids), '>=');
+      }
     }
 
-    // Sort by sid with the latest one first.
-    $query->sort('sid', 'DESC');
+    // Sort by sid with the oldest one first.
+    $query->sort('sid', 'ASC');
 
     return $query;
   }

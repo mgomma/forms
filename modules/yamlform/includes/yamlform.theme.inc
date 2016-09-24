@@ -143,15 +143,16 @@ function template_preprocess_yamlform_submission_navigation(array &$variables) {
 function template_preprocess_yamlform_submission_information(array &$variables) {
   /** @var \Drupal\yamlform\YamlFormSubmissionInterface $yamlform_submission */
   $yamlform_submission = $variables['yamlform_submission'];
+  $yamlform = $yamlform_submission->getYamlForm();
 
-  $variables['yamlform_id'] = $yamlform_submission->getYamlForm()->id();
+  $variables['yamlform_id'] = $yamlform->id();
   $variables['sid'] = $yamlform_submission->id();
   $variables['uuid'] = $yamlform_submission->uuid();
   $variables['is_draft'] = $yamlform_submission->isDraft() ? t('Yes') : t('No');
   $variables['current_page'] = $yamlform_submission->getCurrentPageTitle();
   $variables['remote_addr'] = $yamlform_submission->getRemoteAddr();
   $variables['submitted_by'] = $yamlform_submission->getOwner()->toLink();
-  $variables['form'] = $yamlform_submission->getYamlForm()->toLink();
+  $variables['form'] = $yamlform->toLink();
   $variables['created'] = YamlFormDateHelper::format($yamlform_submission->getCreatedTime());
   $variables['completed'] = YamlFormDateHelper::format($yamlform_submission->getCompletedTime());
   $variables['changed'] = YamlFormDateHelper::format($yamlform_submission->getChangedTime());
@@ -167,12 +168,17 @@ function template_preprocess_yamlform_submission_information(array &$variables) 
     $variables['uri'] = Link::fromTextAndUrl($source_url->setAbsolute(FALSE)->toString(), $source_url);;
   }
 
+  if ($yamlform->getSetting('token_update')) {
+    $token_url = $yamlform_submission->getTokenUrl();
+    $variables['token_update'] = Link::fromTextAndUrl($token_url->setAbsolute(FALSE)->toString(), $token_url);
+  }
+
   if ($source_entity = $yamlform_submission->getSourceEntity()) {
     $variables['submitted_to'] = $source_entity->toLink();
   }
 
   $variables['submissions_view'] = FALSE;
-  if ($yamlform_submission->getYamlForm()->access('submission_view_any')) {
+  if ($yamlform->access('submission_view_any')) {
     $variables['submissions_view'] = TRUE;
   }
   elseif ($source_entity) {
@@ -187,6 +193,7 @@ function template_preprocess_yamlform_submission_information(array &$variables) 
       $variables['submissions_view'] = TRUE;
     }
   }
+
 }
 
 /**

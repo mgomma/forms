@@ -141,8 +141,30 @@ abstract class YamlFormCompositeBase extends FormElement {
         unset($composite_element['#required']);
       }
 
+      // Load options.
       if (isset($composite_element['#options'])) {
         $composite_element['#options'] = YamlFormOptionsEntity::getElementOptions($composite_element);
+      }
+
+      // Handle #type specific customizations.
+      if (isset($composite_element['#type'])) {
+        switch ($composite_element['#type']) {
+          case 'select':
+          case 'yamlform_select_other':
+            // Always include an empty option, even if the composite element
+            // is not required.
+            // @see https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Render!Element!Select.php/class/Select/8.2.x
+            // Use placeholder as empty option.
+            if (!isset($composite_element['#empty_option'])) {
+              if (isset($composite_element['#placeholder'])) {
+                $composite_element['#empty_option'] = $composite_element['#placeholder'];
+              }
+              elseif (empty($composite_element['#required'])) {
+                $composite_element['#empty_option'] = t('- None -');
+              }
+            }
+            break;
+        }
       }
     }
 

@@ -18,6 +18,7 @@ settings:
   default_confirmation_message: 'New submission added to [yamlform:title].'
   default_limit_total_message: 'No more submissions are permitted.'
   default_limit_user_message: 'No more submissions are permitted.'
+  default_form_details_toggle: false
 export:
   delimiter: ','
   header_format: label

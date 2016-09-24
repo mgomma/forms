@@ -117,10 +117,19 @@ class YamlFormSubmissionForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function setEntity(EntityInterface $entity) {
+    /** @var \Drupal\yamlform\YamlFormInterface $yamlform */
+    $yamlform = $entity->getYamlForm();
     $this->sourceEntity = $this->requestHandler->getCurrentSourceEntity(['yamlform', 'yamlform_submission']);
-    if ($yamlform_submission_draft = $this->storage->loadDraft($entity->getYamlForm(), $this->sourceEntity, $this->currentUser())) {
+
+    if ($yamlform->getSetting('token_update') && ($token = $this->getRequest()->query->get('token'))) {
+      if ($yamlform_submissions_token = $this->storage->loadByProperties(['token' => $token])) {
+        $entity = reset($yamlform_submissions_token);
+      }
+    }
+    elseif ($yamlform_submission_draft = $this->storage->loadDraft($yamlform, $this->sourceEntity, $this->currentUser())) {
       $entity = $yamlform_submission_draft;
     }
+
     $this->messageManager->setYamlFormSubmission($entity);
     $this->messageManager->setSourceEntity($this->sourceEntity);
     return parent::setEntity($entity);
@@ -149,6 +158,12 @@ class YamlFormSubmissionForm extends ContentEntityForm {
     // Add novalidate attribute to form if client side validation disabled.
     if ($this->getYamlFormSetting('form_novalidate')) {
       $form['#attributes']['novalidate'] = 'novalidate';
+    }
+
+    // Display collapse/expand all details link.
+    if ($this->getYamlFormSetting('form_details_toggle')) {
+      $form['#attributes']['class'][] = 'yamlform-details-toggle';
+      $form['#attached']['library'][] = 'yamlform/yamlform.element.details.toggle';
     }
 
     // Add autofocus class to form.

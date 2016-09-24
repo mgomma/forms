@@ -3,22 +3,13 @@ status: true
 dependencies: {  }
 uid: null
 template: false
-id: test_element_likert
-title: 'Test: Element: Likert'
-description: 'Test the YAML form modules''s likert element.'
+id: test_token_update
+title: 'Test: Token: Update'
+description: 'Test updating submission using secure token.'
 elements: |
-  likert:
-    '#type': likert
-    '#title': 'Likert'
-    '#required': true
-    '#questions':
-      q1: 'Question 1'
-      q2: 'Question 2'
-      q3: 'Question 3'
-    '#answers':
-      1: 'Option 1'
-      2: 'Option 2'
-      3: 'Option 3'
+  textfield:
+    '#type': 'textfield'
+    '#title': 'textfield'
 settings:
   page: true
   page_submit_path: ''
@@ -50,8 +41,8 @@ settings:
   draft_button_label: ''
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
-  confirmation_message: ''
+  confirmation_type: page
+  confirmation_message: '<p>You can update your submission via <a href="[yamlform-submission:update-url]">[yamlform-submission:update-url]</a></p>'
   confirmation_url: ''
   limit_total: null
   limit_total_message: ''
@@ -59,8 +50,8 @@ settings:
   limit_user_message: ''
   entity_limit_total: null
   entity_limit_user: null
-  results_disabled: true
-  token_update: false
+  results_disabled: false
+  token_update: true
 access:
   create:
     roles:
@@ -89,10 +80,21 @@ access:
     roles: {  }
     users: {  }
 handlers:
-  debug:
-    id: debug
-    label: Debug
-    handler_id: debug
+  email:
+    id: email
+    label: Email
+    handler_id: email
     status: true
-    weight: 1
-    settings: {  }
+    weight: 0
+    settings:
+      to_mail: default
+      cc_mail: ''
+      bcc_mail: ''
+      from_mail: default
+      from_name: default
+      subject: default
+      body: '<a href="[yamlform-submission:update-url]">[yamlform-submission:update-url]</a>'
+      excluded_elements: {  }
+      html: true
+      attachments: false
+      debug: false

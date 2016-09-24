@@ -191,7 +191,7 @@ class YamlFormSubmissionFormElementTest extends YamlFormTestBase {
     $this->drupalGet('yamlform/test_form_properties');
     $this->assertPattern('/Form prefix<form /');
     $this->assertPattern('/<\/form>\s+Form suffix/');
-    $this->assertRaw('form class="yamlform-submission-test-form-properties-form yamlform-submission-form test-form-properties" invalid="invalid" style="border: 10px solid red; padding: 1em;"');
+    $this->assertRaw('form class="yamlform-submission-test-form-properties-form yamlform-submission-form test-form-properties yamlform-details-toggle" invalid="invalid" style="border: 10px solid red; padding: 1em;"');
   }
 
 }

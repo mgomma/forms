@@ -3,22 +3,20 @@ status: true
 dependencies: {  }
 uid: null
 template: false
-id: test_element_likert
-title: 'Test: Element: Likert'
-description: 'Test the YAML form modules''s likert element.'
+id: test_form_details_toggle
+title: 'Test: Form: Details toggle'
+description: 'Test details expand/collapse all toggle link.'
 elements: |
-  likert:
-    '#type': likert
-    '#title': 'Likert'
-    '#required': true
-    '#questions':
-      q1: 'Question 1'
-      q2: 'Question 2'
-      q3: 'Question 3'
-    '#answers':
-      1: 'Option 1'
-      2: 'Option 2'
-      3: 'Option 3'
+  details_01:
+    '#type': details
+    '#title': 'Details 01'
+    details_01:
+      '#markup': 'Detail 01 Markup'
+  details_02:
+    '#type': details
+    '#title': 'Details 02'
+    details_02:
+      '#markup': 'Detail 02 Markup'
 settings:
   page: true
   page_submit_path: ''
@@ -32,7 +30,7 @@ settings:
   form_prepopulate_source_entity: false
   form_novalidate: false
   form_autofocus: false
-  form_details_toggle: false
+  form_details_toggle: true
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
@@ -50,7 +48,7 @@ settings:
   draft_button_label: ''
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
+  confirmation_type: page
   confirmation_message: ''
   confirmation_url: ''
   limit_total: null
@@ -89,10 +87,10 @@ access:
     roles: {  }
     users: {  }
 handlers:
-  debug:
-    id: debug
-    label: Debug
-    handler_id: debug
+  'null':
+    id: 'null'
+    label: 'Null'
+    handler_id: 'null'
     status: true
     weight: 1
     settings: {  }

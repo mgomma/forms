@@ -59,7 +59,7 @@ class YamlFormResultsExportTest extends YamlFormTestBase {
     /** @var \Drupal\yamlform\YamlFormSubmissionInterface[] $submissions */
     $submissions = YamlFormSubmission::loadMultiple($sids);
     foreach ($submissions as $sid => $submission) {
-      $fid = $submission->getData('file');
+      $fid = $submission->getData('managed_file_single');
       $filename = File::load($fid)->getFilename();
 
       $this->assert(isset($files["test_element_managed_file/$sid"]));

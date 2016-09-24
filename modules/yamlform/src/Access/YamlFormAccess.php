@@ -36,7 +36,7 @@ class YamlFormAccess {
    *   The access result.
    */
   static public function checkOverviewAccess(AccountInterface $account) {
-    return AccessResult::allowedIf($account->hasPermission('administer yamlform') || $account->hasPermission('administer yamlform submission') || $account->hasPermission('access yamlform overview')|| $account->hasPermission('edit own yamlform'));
+    return AccessResult::allowedIf($account->hasPermission('administer yamlform') || $account->hasPermission('administer yamlform submission') || $account->hasPermission('access yamlform overview'));
   }
 
   /**
